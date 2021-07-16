@@ -1,10 +1,20 @@
-class MyListElement<T>(val element: T, var next: MyListElement<T>? = null) : Comparable<T>{
-	//MLE -> next MLE -> MLE etc
+class MyListElement<T>(val element: T, var next: MyListElement<T>? = null) : Comparable<MyListElement<T>>{
 	override fun compareTo(other: MyListElement<T>): Int {
 		if(this.element > other?.element) return 1
-		return 0
+		if(this.element < other.element) return -1
+		else return 0
 	}
 }
+
+//why is this recursive
+private operator fun <T> T.compareTo(element: T): Int {
+	if(this > element) return 1
+	else if(this < element) return -1
+	else return 0
+}
+
+
+
 //#adding to a linkedlist is always O(N) because you have to traverse the list and add to the tail
 //element is data we're storing
 //mylist is a wrapper around MLE
@@ -19,6 +29,7 @@ class MyListElement<T>(val element: T, var next: MyListElement<T>? = null) : Com
 //therefore if head != null, find the tail then add
 
 class MyList<T>(var head: MyListElement<T>? = null) {
+
 
 	fun isEmpty() = head == null
 
