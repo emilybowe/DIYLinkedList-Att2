@@ -53,14 +53,31 @@ internal class MyListTest {
 	}
 
 	@Test
+	fun testNew6() {
+		var myList = MyList<Int>()
+		myList.addTail(10)  //head
+		myList.addTail(20) //
+		myList.addTail(30) // thing
+		println(myList.removeElement(10))
+		println(myList.head!!.element)
+	}
+
+	@Test
 	fun test7() {
 		var myList = MyList<Int>()
-		myList.addTail(10)
-		myList.addTail(30)
-		myList.addTail(20)
-		myList.addTail(40)
-		//myList.print()
-		myList.sort()
+		myList.addTail(10)  //head
+		myList.addTail(20) //
+		myList.addTail(30) // thing
+		println(myList.removeElement(20))
+	}
+
+	@Test
+	fun test8() {
+		var myList = MyList<Int>()
+		myList.addTail(10)  //head
+		myList.addTail(20) // thing
+		myList.addTail(30) // null
+		println(myList.removeElement(30))
 	}
 }
 
